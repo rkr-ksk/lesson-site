@@ -1,0 +1,531 @@
+@charset "utf-8";
+
+/* ページ全体に関わるcssの設定 */
+html *,
+::before,
+::after{
+    box-sizing: border-box;
+}
+
+/* スムーズスクロール */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+	font-family: 'Noto Sans JP', sans-serif;
+  margin: 0;
+  /* background: #1a001a; */
+	
+	width: 100%;
+	height: 100%;
+	background:linear-gradient(45deg, #40057a,#1a001a,#823fee);
+	background-size: 200% 200%;
+	animation: bggradient 15s ease infinite;
+}
+
+@keyframes bggradient {
+		0% {
+			background-position: 0% 50%;
+		}
+		50% {
+			background-position: 100% 50%;
+		}
+		100% {
+			background-position: 0% 50%;
+		}
+	}
+
+/* ----------common---------- */
+:root {
+  --base-color: #303; /* ベースカラー（濃紫）*/
+	--main-color: #60c; /* メインカラー（紫）*/
+  --sub-color: #fff836; /* サブカラー（黄） */
+}
+
+main {
+  margin: 0;
+}
+
+section {
+  margin: 32px auto 0;
+	width: 80%;
+}
+
+section p {
+	padding: 8px;
+}
+
+h1 {
+  margin: auto 0;
+}
+
+h2 {
+  font-size: 20px;
+  margin: 0;
+	font-family: 'Limelight', cursive;
+	color: #fff;
+	border-bottom: 2px solid var(--sub-color);
+	border-image: linear-gradient(to right, var(--sub-color) 0%, #1a001a 100%);
+  border-image-slice: 1;
+}
+
+h3 {
+  font-weight: normal;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+/* PC用表示調整 */
+@media (min-width: 768px) {
+  h2 {
+    font-size: 32px;
+    letter-spacing: .1rem;
+  }
+}
+
+/* ----------ヘッダーメニュー---------- */
+header {
+  background: var(--base-color);
+  margin: 0;
+  padding: 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* スティッキーメニューの設定 */
+  position: sticky;
+  top: 0;
+  z-index: 99; /* opacityによりstacking contextが生成されるため。数値は仮指定 */
+}
+
+header a {
+	/* ロゴ画像のずれへの対処（あまりよくわかっていない） */
+	display: inline-block;
+}
+header img {
+	max-width: 80%;
+	vertical-align: middle;
+}
+
+/* ▼SP用ボタン */
+/* -----ここからcocofactory参照コード----- */
+.openbtn {
+  position: relative; /*ボタン内側の基点となるためrelativeを指定*/
+  z-index: 9999; /*最前面に表示*/
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  user-select: none;
+}
+
+/* ボタン内側 */
+.openbtn span {
+  display: inline-block;
+  transition: all .4s; /* アニメーションの設定 */
+  position: absolute;
+}
+
+.openbtn span:nth-of-type(1),
+.openbtn span:nth-of-type(3) {
+  height: 2px;
+  background: #fff;
+  width: 62%;
+  left: 10px;
+}
+
+.openbtn span:nth-of-type(1) {
+  top: 13px; 
+}
+
+.openbtn span:nth-of-type(2) {
+  top: 19px;
+  left: 11px;
+  font-size:0.6rem;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.openbtn span:nth-of-type(3) {
+  top:36px;
+}
+
+/* activeクラスが付与されると×印に変形 */
+.openbtn.active span:nth-of-type(1) {
+  top: 18px;
+  left: 18px;
+  transform: translateY(6px) rotate(-45deg);
+  width: 30%;
+}
+
+.openbtn.active span:nth-of-type(2) {
+  opacity: 0;
+}
+
+.openbtn.active span:nth-of-type(3) {
+  top: 30px;
+  left: 18px;
+  transform: translateY(-6px) rotate(45deg);
+  width: 30%;
+}
+/* -----ここまで----- */
+
+@media (min-width: 768px) {
+  .openbtn{
+    display: none;
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(20, 20, 20, 0.98);
+  text-align: center;
+  padding: 64px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s;
+  z-index: 1;
+}
+
+.overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.overlay ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.overlay li {
+  margin-top: 40px;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.overlay.show li{
+  opacity: 1;
+  transform: none;
+}
+
+.overlay a{
+  text-decoration: none;
+  color: #fff;
+	font-family: 'Limelight', cursive;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.overlay a:hover{
+  color: var(--sub-color);
+}
+
+.overlay.show li:nth-child(1){
+  transition-delay: .1s;
+}
+
+.overlay.show li:nth-child(2){
+  transition-delay: .2s;
+}
+
+.overlay.show li:nth-child(3){
+  transition-delay: .3s;
+}
+
+.overlay.show li:nth-child(4){
+  transition-delay: .4s;
+}
+
+.overlay.show li:nth-child(5){
+  transition-delay: .5s;
+}
+
+/* ▼PC用メニュー */
+.header-nav {
+  display: none; /* モバイル用表示の際は横メニュー非表示 */
+}
+
+@media (min-width: 768px) {
+  header {
+    display: block;
+   }
+
+  .header-nav{
+    display: flex;
+    flex-direction: row;
+    gap: 10px 20px;
+    justify-content: flex-end;
+    margin: 0;
+    list-style: none;
+  }
+
+  header a {
+    text-decoration: none;
+    color: #fff;
+		font-size: 22px;
+    font-family: 'Limelight', cursive;
+  }
+
+  header a:hover {
+    color: var(--sub-color);
+  }
+}
+
+/* ----------メインコンテンツ---------- */
+/* カルーセルアイテム */
+.main-image {
+  overflow: hidden;
+  position: relative;
+	text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.carousel-dots {
+  text-align: center;
+}
+
+.carousel-dots button {
+  border: none;
+  width: 12px;
+  height: 12px;
+  background: #1a001a;
+  cursor: pointer;
+}
+
+.carousel-dots button:hover {
+  opacity: .8;
+}
+
+.carousel-dots button + button {
+  margin-left: 8px;
+}
+
+.carousel-dots .current {
+  background: var(--main-color);
+}
+
+.images {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  transition: transform .5s;
+}
+
+.images li {
+  height: 100%;
+  min-width: 100%;
+}
+
+.images li img {
+  width: 85%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* トップコンテンツ */
+.container {
+	margin-top: 16px;
+	background: rgba(255, 255, 255, .5);
+}
+
+/* ニュース */
+#news .container {
+	padding-bottom: 8px;
+}
+
+.news article:nth-child(1) {
+	padding: 8px;
+}
+.news article + article {
+	padding:  0 8px 8px;
+}
+
+.news article a {
+	text-decoration: none;
+	color: var(--sub-color);
+}
+
+.news article a:hover {
+	text-decoration: underline;
+	color: var(--main-color);
+}
+
+/* メニュー */
+#menu .container {
+	padding-bottom: 8px;
+}
+
+/* コンタクト */
+.contact-form {
+  border: 1px solid red;
+}
+
+.contact-form p {
+  margin-left: 8px;
+  padding: 0;
+}
+
+
+.contact-form input {
+  width: 240px;
+  height: 28px;
+  margin: 0 0 16px 8px;
+}
+
+.contact-form textarea {
+  width: 60%;
+  min-width: 240px;
+  max-width: 80%;
+  margin: 0 0 16px 8px;
+}
+
+.contact-form button {
+	all: unset;
+	width: 200px;
+	margin: 8px auto 16px;
+	padding: 4px;
+	text-align: center;
+	background: #eee;
+	border-radius: 4px;
+	cursor: pointer;
+	user-select: none;
+}
+
+.contact-form button:hover {
+	opacity: .8;
+}
+
+.contact-form button:active {
+	opacity: 1;
+	background: var(--sub-color);
+}
+
+@media (min-width: 768px) {
+	.form-item {
+    flex-wrap: nowrap;
+  }
+}
+
+/* アクセス */
+#access img {
+	width: 80%;
+}
+
+/* ----------フッターメニュー---------- */
+footer {
+  background: var(--base-color);
+  margin-top: 48px;
+	text-align: center;
+  line-height: 1.6rem;
+	color: #fff;
+}
+
+.footer-content {
+	padding-top: 16px;
+  background: #303;
+}
+
+.sns-footer {
+  display: flex;
+  justify-content: center;
+	gap: 32px;
+	margin-top: 16px;
+}
+
+.sns-footer div a {
+  display: block;
+  width: 60px;
+  height: 60px;
+  background: #636;
+  border-radius: 50%;
+  font-size: 24px;
+  line-height: 60px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.sns-footer div a:hover {
+  background: var(--sub-color);
+}
+
+.copyright {
+  padding: 8px 0;
+	color: #666;
+}
+
+/* ---共通モジュール--- */
+.news-text {
+  overflow-wrap: break-word;
+}
+
+.viewmore {
+  width: 152px;
+  border: 2px solid #000;
+  margin: 8px auto;
+  padding: 4px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  font-weight: bold;
+}
+
+.viewmore a {
+  all: unset;
+}
+
+.viewmore:hover {
+  border: 2px solid #fff;
+  color: var(--sub-color);
+  transition: border .3s;
+}
+
+.viewmore:active {
+  background: var(--sub-color);
+  color: #fff;
+}
+
+.sns {
+  display: flex;
+  justify-content: center;
+	gap: 32px;
+}
+
+.sns div a {
+  display: block;
+  width: 60px;
+  height: 60px;
+  background: var(--main-color);
+  border-radius: 50%;
+  font-size: 24px;
+  line-height: 60px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.sns div a:hover {
+  background: var(--sub-color);
+}
+
+@keyframes fadeInAnime{
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

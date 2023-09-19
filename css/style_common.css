@@ -1,0 +1,437 @@
+@charset "utf-8";
+
+/* ページ全体に関わるcssの設定 */
+html *,
+::before,
+::after{
+    box-sizing: border-box;
+}
+
+html {
+  /* スムーズスクロール */
+  scroll-behavior: smooth;
+  /* 固定ヘッダ分のジャンプ位置調整 */
+  scroll-padding-top: 80px;
+}
+
+body {
+	font-family: 'Noto Sans JP', sans-serif;
+  margin: 0;
+  /* background: #1a001a; */
+	
+	width: 100%;
+	height: 100%;
+	background:linear-gradient(45deg, #40057a,#1a001a,#823fee);
+	background-size: 200% 200%;
+	animation: bggradient 15s ease infinite;
+}
+
+@keyframes bggradient {
+		0% {
+			background-position: 0% 50%;
+		}
+		50% {
+			background-position: 100% 50%;
+		}
+		100% {
+			background-position: 0% 50%;
+		}
+	}
+
+/* ----------common---------- */
+:root {
+  --base-color: #303; /* ベースカラー（濃紫）*/
+	--main-color: #60c; /* メインカラー（紫）*/
+  --sub-color: #fff836; /* サブカラー（黄） */
+}
+
+/* ----------ヘッダーメニュー---------- */
+header {
+  background: var(--base-color);
+  margin: 0;
+  padding: 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* スティッキーメニューの設定 */
+  position: sticky;
+  top: 0;
+  z-index: 99; /* opacityによりstacking contextが生成されるため。数値は仮指定 */
+}
+
+header a {
+	/* ロゴ画像のずれへの対処（あまりよくわかっていない） */
+	display: inline-block;
+}
+header img {
+	max-width: 80%;
+	vertical-align: middle;
+}
+
+/* ▼SP用ボタン */
+/* -----ここからcocofactory参照コード----- */
+.openbtn {
+  position: relative; /*ボタン内側の基点となるためrelativeを指定*/
+  z-index: 9999; /*最前面に表示*/
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  user-select: none;
+}
+
+/* ボタン内側 */
+.openbtn span {
+  display: inline-block;
+  transition: all .4s; /* アニメーションの設定 */
+  position: absolute;
+}
+
+.openbtn span:nth-of-type(1),
+.openbtn span:nth-of-type(3) {
+  height: 2px;
+  background: #fff;
+  width: 62%;
+  left: 10px;
+}
+
+.openbtn span:nth-of-type(1) {
+  top: 13px; 
+}
+
+.openbtn span:nth-of-type(2) {
+  top: 19px;
+  left: 11px;
+  font-size:0.6rem;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.openbtn span:nth-of-type(3) {
+  top:36px;
+}
+
+/* activeクラスが付与されると×印に変形 */
+.openbtn.active span:nth-of-type(1) {
+  top: 18px;
+  left: 18px;
+  transform: translateY(6px) rotate(-45deg);
+  width: 30%;
+}
+
+.openbtn.active span:nth-of-type(2) {
+  opacity: 0;
+}
+
+.openbtn.active span:nth-of-type(3) {
+  top: 30px;
+  left: 18px;
+  transform: translateY(-6px) rotate(45deg);
+  width: 30%;
+}
+/* -----ここまで----- */
+
+@media (min-width: 768px) {
+  .openbtn{
+    display: none;
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(20, 20, 20, 0.98);
+  text-align: center;
+  padding: 64px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s;
+  z-index: 1;
+}
+
+.overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.overlay ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.overlay li {
+  margin-top: 40px;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.overlay.show li{
+  opacity: 1;
+  transform: none;
+}
+
+.overlay a{
+  text-decoration: none;
+  color: #fff;
+	font-family: 'Limelight', cursive;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.overlay a:hover{
+  color: var(--sub-color);
+}
+
+.overlay .sns a:hover{
+  color: #777;
+}
+
+.this-page {
+  font-family: 'Limelight', cursive;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #777;
+}
+
+.overlay.show li:nth-child(1){
+  transition-delay: .1s;
+}
+
+.overlay.show li:nth-child(2){
+  transition-delay: .2s;
+}
+
+.overlay.show li:nth-child(3){
+  transition-delay: .3s;
+}
+
+.overlay.show li:nth-child(4){
+  transition-delay: .4s;
+}
+
+.overlay.show li:nth-child(5){
+  transition-delay: .5s;
+}
+
+.overlay.show li:nth-child(6){
+  transition-delay: .6s;
+}
+
+/* ▼PC用メニュー */
+.header-nav {
+  display: none; /* モバイル用表示の際は横メニュー非表示 */
+}
+
+@media (min-width: 768px) {
+  header {
+    display: block;
+   }
+
+  .header-nav{
+    display: flex;
+    flex-direction: row;
+    gap: 10px 20px;
+    justify-content: flex-end;
+    margin: 0;
+    list-style: none;
+  }
+
+  header a {
+    text-decoration: none;
+    color: #fff;
+		font-size: 22px;
+    font-family: 'Limelight', cursive;
+  }
+
+  header a:hover {
+    color: var(--sub-color);
+  }
+}
+
+/* ----------フッターメニュー---------- */
+footer {
+  background: var(--base-color);
+  margin-top: 48px;
+	text-align: center;
+  line-height: 1.6rem;
+	color: #fff;
+}
+
+.footer-content {
+	padding-top: 16px;
+  background: #303;
+}
+
+.sns-footer {
+  display: flex;
+  justify-content: center;
+	gap: 32px;
+	margin-top: 16px;
+}
+
+.sns-footer div a {
+  display: block;
+  width: 60px;
+  height: 60px;
+  background: #636;
+  border-radius: 50%;
+  font-size: 24px;
+  line-height: 60px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.sns-footer div a:hover {
+  background: var(--sub-color);
+  color: #777;
+}
+
+.copyright {
+  padding: 8px 0;
+	color: #666;
+}
+
+/* ---共通モジュール--- */
+.viewmore {
+  width: 152px;
+  border: 2px solid #000;
+  margin: 8px auto;
+  padding: 4px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  font-weight: bold;
+}
+
+.viewmore a {
+  all: unset;
+}
+
+.viewmore:hover {
+  border: 2px solid #fff;
+  color: var(--sub-color);
+  transition: border .3s;
+}
+
+.viewmore:active {
+  background: var(--sub-color);
+  color: #fff;
+}
+
+.sns {
+  display: flex;
+  justify-content: center;
+	gap: 32px;
+}
+
+.sns div a {
+  display: block;
+  width: 60px;
+  height: 60px;
+  background: var(--main-color);
+  border-radius: 50%;
+  font-size: 24px;
+  line-height: 60px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.sns div a:hover {
+  background: var(--sub-color);
+}
+
+@keyframes fadeInAnime{
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.flow-ghost {
+  width: 100px;
+  height: 100px;
+  margin-right: 8px;
+  opacity: .6;
+  position: absolute;
+  bottom: 5%;
+  right: 0;
+  z-index: 10;
+
+  animation: scroll-anim 5s ease infinite alternate;
+}
+
+@keyframes scroll-anim {
+  0% {
+    bottom: 5%;
+  }
+  100% {
+    bottom: 10%;
+  }
+}
+
+@media (min-width: 768px) {
+  .flow-ghost{
+    width: 150px;
+    height: 150px;
+    top: 120%;
+    bottom: auto;
+  }
+
+  @keyframes scroll-anim {
+    0% {
+      top: 95%;
+      bottom: auto;
+    }
+    100% {
+      top: 120%;
+      bottom: auto;
+    }
+  }
+}
+
+/* SPメニュー表示時にゴーストを非表示 */
+.ghost-hidden {
+  display: none;
+}
+
+/* イメージモーダル */
+.modal-wrapper {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0 ,0 , .8);
+  pointer-events: none;
+  opacity: 0;
+  transition: 0.3s ease-out;
+}
+
+.modal-wrapper.imgshow {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal-image {
+  position: absolute;
+  max-width: 80%;
+  max-height: 80%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  opacity: 0;
+  transition: 0.6s ease-out;
+}
+
+.modal-image.imgshow {
+  opacity: 1;
+}

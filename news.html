@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEWS - 授業用サイト</title>
+  <link rel="stylesheet" href="css/style_common.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Limelight&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700&display=swap&subset=japanese"
+    rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+  <link rel="icon" href="img/favicon.png">
+</head>
+
+<body>
+  <header>
+    <div class="header-ctn">
+      <h1><a href="index.html"><img src="img/logo.png" alt="ロゴ"></a></h1>
+    </div>
+
+    <nav>
+      <ul class="header-nav">
+        <li><a href="#">NEWS</a></li>
+        <li><a href="menu.html">MENU</a></li>
+        <li><a href="index.html#contact">CONTACT</a></li>
+        <li><a href="index.html#access">ACCESS</a></li>
+      </ul>
+    </nav>
+
+    <div class="openbtn" id="menu-button">
+      <span></span><span>Menu</span><span></span>
+    </div>
+
+  </header>
+
+  <div class="overlay">
+    <nav>
+      <ul>
+        <li><a href="index.html">TOP</a></li>
+        <li class="this-page">NEWS</li>
+        <li><a href="menu.html">MENU</a></li>
+        <li><a href="index.html#contact" class="ol-contact">CONTACT</a></li>
+        <li><a href="index.html#access" class="ol-access">ACCESS</a></li>
+        <li class="sns">
+          <div><a href="#"><i class="fab fa-twitter"></i></a></div>
+          <div><a href="#"><i class="fab fa-instagram"></i></a></div>
+          <div><a href="#"><i class="fab fa-facebook-f"></i></a></div>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <main>
+    <section>
+      <h2>NEWS</h2>
+      <div class="news-page">
+        <article id="atc3">
+          <h3>10月店休日のお知らせ</h3>
+          <p class="news-date">YYYY/MM/DD</p>
+          <!-- ここで指定した月の翌月のカレンダーをjsで生成 -->
+          <span class="oct-year-month" data-year="2023" data-month="9"></span>
+          <!-- ここで指定した店休日を色付け -->
+          <span class="oct-dayoff" data-off1="4" data-off2="14" data-off3="24" data-off4="25"></span>
+          <table>
+            <thead>
+              <tr>
+                <th class="oct-title" colspan="7">YYYY/MM</th>
+              </tr>
+              <tr>
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+              </tr>
+            </thead>
+            <tbody class="oct-calender">
+            </tbody>
+          </table>
+          <p>10月の店休日は、<span class="marker">４日（水）・14日（土）・24日（火）・25日（水）</span>です。</p>
+          <p>ここに記事本文が入ります。ここに記事本文が入ります。ここに記事本文が入ります。ここに記事本文が入ります。ここに記事本文が入ります。ここに記事本文が入ります。ここに記事本文が入ります。ここに記事本文が入ります。
+          </p>
+        </article>
+      </div>
+
+      <div class="news-page">
+        <article id="atc2">
+          <h3>9月店休日のお知らせ</h3>
+          <p class="news-date">YYYY/MM/DD</p>
+          <!-- ここで指定した月の翌月のカレンダーをjsで生成 -->
+          <span class="sep-year-month" data-year="2023" data-month="8"></span>
+          <!-- ここで指定した店休日を色付け -->
+          <span class="sep-dayoff" data-off1="11" data-off2="20" data-off3="25"></span>
+          <table>
+            <thead>
+              <tr>
+                <th class="sep-title" colspan="7">YYYY/MM</th>
+              </tr>
+              <tr>
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+              </tr>
+            </thead>
+            <tbody class="sep-calender">
+            </tbody>
+          </table>
+          <p>9月の店休日は、<span class="marker">11日（月）・20日（水）・25日（月）</span>です。</p>
+          <p>ここに記事本文が入ります。ここに記事本文が入ります。ここに記事本文が入ります。ここに記事本文が入ります。ここに記事本文が入ります。ここに記事本文が入ります。ここに記事本文が入ります。ここに記事本文が入ります。
+          </p>
+        </article>
+      </div>
+
+      <div class="news-page">
+        <article id="atc1">
+          <h3>MM/DD　入荷情報</h3>
+          <p class="news-date">YYYY/MM/DD</p>
+          <div>
+            <img src="img/pic1.png">
+          </div>          
+          <p>ここに記事本文が入ります。ここに記事本文が入ります。ここに記事本文が入ります。ここに記事本文が入ります。ここに記事本文が入ります。ここに記事本文が入ります。ここに記事本文が入ります。ここに記事本文が入ります。
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <div class="page-viewer">
+      <p>page <span class="crt-num">1</span>
+        <span class="prev-num">2</span>
+        <span class="prev-num">3</span>
+        <button id="nextpage">&raquo;</button>
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <p>store name</p>
+      <p>架空カフェバー</p>
+      <p>18：00～03：00</p>
+      <p>〒000-0000　神奈川県横浜市未知区架空町1-1-1　虚構ビルB1</p>
+      <p>TEL: 000-0000-0000</p>
+      <div class="sns-footer">
+        <div><a href="#"><i class="fab fa-twitter"></i></a></div>
+        <div><a href="#"><i class="fab fa-instagram"></i></a></div>
+        <div><a href="#"><i class="fab fa-facebook-f"></i></a></div>
+      </div>
+    </div>
+    <div class="copyright">
+      <small>©2023 店名</small>
+    </div>
+  </footer>
+
+  <script src="js/news.js"></script>
+</body>
+
+</html>
