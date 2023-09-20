@@ -260,6 +260,7 @@ footer {
 	text-align: center;
   line-height: 1.6rem;
 	color: #fff;
+  font-size: .9rem;
 }
 
 .footer-content {
@@ -306,7 +307,7 @@ footer {
   cursor: pointer;
   user-select: none;
   font-weight: bold; */
-  width: 50%;
+  width: 60%;
   height: 48px;
   border: 2px solid #fff;
   text-align: center;
@@ -343,8 +344,15 @@ footer {
   transition: background .5s;
 }
 
+@media screen and (max-width: 400px) {
+  .viewmore {
+    font-size: .8rem;
+  }
+}
+
 @media (min-width: 1080px) {
 	.viewmore{
+    width: 40%;
     background-image: url("../img/ghost-mini.png");
     background-origin: content-box;
     background-position-x: 15%;
