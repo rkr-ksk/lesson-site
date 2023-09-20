@@ -20,9 +20,9 @@ body {
 	
 	width: 100%;
 	height: 100%;
-	background:linear-gradient(45deg, #40057a,#1a001a,#823fee);
+	background:linear-gradient(45deg, #501fd6,#1a001a,#9a63ff);
 	background-size: 200% 200%;
-	animation: bggradient 15s ease infinite;
+	animation: bggradient 10s ease infinite;
 }
 
 @keyframes bggradient {
@@ -163,13 +163,48 @@ p {
 	background: rgba(255, 255, 255, .5);
 }
 
+.hero-h3 {
+  width: 85%;
+  margin: 16px auto 0;
+
+  /* ふわっと出現 */
+  animation-name: fadeInAnime;
+  animation-duration: 1s;
+  animation-delay: .5s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.hero-h3 h3 {
+  font-family: 'Shippori Antique B1', sans-serif;
+}
+
 .store-about {
   padding: 40px;
+
+  /* ふわっと出現 */
+  animation-name: fadeInAnime;
+  animation-duration: 1s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@media (min-width: 768px) {
+	.hero-h3 h3{
+    font-size: 28px;
+  }
+  .store-about {
+    width: 85%;
+    margin: 0 auto;
+    padding-right: 0;
+    padding-left: 0;
+  }
 }
 
 /* ニュース */
 #news .container {
-	padding-bottom: 8px;
+	padding: 16px;
 }
 
 .news article:nth-child(1) {
@@ -189,9 +224,13 @@ p {
 	color: var(--main-color);
 }
 
+#news .viewmore {
+  margin-top: 24px;
+}
+
 /* メニュー */
 #menu .container {
-	padding: 8px;
+	padding: 16px;
 }
 
 #menu h3 {
@@ -219,7 +258,7 @@ p {
 }
 
 .menu-drink {
-  display: flex;
+  position: relative;
 }
 .menu-drink + .menu-drink {
   margin-top: 32px;
@@ -229,14 +268,59 @@ p {
   flex-direction: row-reverse;
 }
 
-.cocktail-img img {
-  width: 240px;
-  height: 320px;
+.odd {
+  text-align: right;
 }
 
-.menu-drink p:nth-child(1){
-  border-bottom: 2px solid #444;
+.even {
+  text-align: left;
+}
+
+.cocktail-img img {
+  width: 90%;
+  height: auto;
+}
+
+.cocktail-name-odd {
+  background: rgba(0, 0, 0,.5);
+  color: #fff;
   font-size: 20px;
+  position: absolute;
+  top: 10px;
+}
+.cocktail-name-even {
+  background: rgba(0, 0, 0,.5);
+  color: #fff;
+  font-size: 20px;
+  position: absolute;
+  top: 10px;
+  right: 0;
+}
+
+.cocktail-caption-odd {
+  background-color: rgba(0, 0, 0,.5);
+  color: #fff;
+  width: 90%;
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  font-size: .9rem;
+}
+
+.cocktail-caption-even {
+  background-color: rgba(0, 0, 0,.5);
+  color: #fff;
+  width: 90%;
+  position: absolute;
+  bottom: 20px;
+  right: 0;
+  font-size: .9rem;
+}
+
+@media screen and (max-width: 400px) {
+  .cocktail-caption {
+    font-size: .7rem;
+  }
 }
 
 @media (min-width: 768px) {
@@ -258,23 +342,42 @@ p {
     width: 300px;
     height: 400px;
   }
-  .menu-drink p:nth-child(1){
-    border-bottom: none;
-    text-align: center;
+
+  .cocktail-name-even {
+    left: 0;
+    right: auto;
   }
-  
+
+  .cocktail-caption-odd, .cocktail-caption-even {
+    margin-top: 32px;
+    background-color: transparent;
+    color: #000;
+    width: 100%;
+    position: relative;
+    font-size: 1rem;
+  }
 }
 
 /* コンタクト */
+#contact .container{
+  padding: 16px;
+}
+
+.tel {
+  margin: 16px 0;
+  padding: 24px;
+  text-align: center;
+  background-color: #BBB;
+}
+
 .contact-form {
-  border: 1px solid red;
+  margin-top: 16px;
 }
 
 .contact-form p {
   margin-left: 8px;
   padding: 0;
 }
-
 
 .contact-form input {
   width: 240px;
@@ -295,7 +398,8 @@ p {
 	margin: 8px auto 16px;
 	padding: 4px;
 	text-align: center;
-	background: #eee;
+	background: #dcc8ff;
+  box-shadow: 0 8px 8px rgba(0, 0, 0, .3);
 	border-radius: 4px;
 	cursor: pointer;
 	user-select: none;
@@ -313,6 +417,11 @@ p {
 @media (min-width: 768px) {
 	.form-item {
     flex-wrap: nowrap;
+  }
+
+  .tel {
+    width: 60%;
+    margin: 16px auto;
   }
 }
 
@@ -362,6 +471,7 @@ p {
 /* ----------記事ページ-news.html---------- */
 .news-page{
   margin-top: 32px;
+  padding-bottom: 16px;
   background: rgba(255, 255, 255, .5);
 }
 
@@ -468,6 +578,16 @@ td.dayoff {
   background-color: var(--sub-color);
 }
 
+@media screen and (max-width: 400px) {
+  table th{
+    font-size: .7rem;
+  }
+}
+
+.news-top-p {
+  margin: 16px 0;
+}
+
 /* ----------メニューページ-menu.html---------- */
 .menu-page{
   margin-top: 32px;
@@ -488,6 +608,66 @@ td.dayoff {
 
 .menu-jump {
   display: flex;
+  justify-content: space-around;
+  gap: 16px;
+  padding: 0 32px;
+  text-align: center;
+}
+
+.jump-link{
+  width: 50%;
+  height: 64px;
+  border: 2px solid #fff;
+  line-height: 56px;
+  position: relative;
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+}
+
+.jump-link a{
+  text-decoration: none;
+  font-weight: bold;
+  color: var(--sub-color);
+  letter-spacing: .2rem;
+  /* 以下、div要素全体を（aタグで囲まずに）リンクにするための記述 */
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.jump-link:hover {
+  background-color: rgba(255, 255, 255, .6);
+  box-shadow: 0 16px 16px rgba(0, 0, 0, .3);
+
+  transition: background .5s;
+}
+
+@media (min-width: 1080px) {
+	.jump-link{
+    background-image: url("../img/ghost-mini.png");
+    background-origin: content-box;
+    background-position-x: 90%;
+    background-position-y: bottom;
+    background-size: 10%;
+    background-repeat: no-repeat;
+  }
+  
+  .jump-link:hover {
+    background-size: 15%;
+    background-position-y: top;
+  
+    transition: background .5s;
+  }
+}
+
+#menu-drink, #menu-food {
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+  font-family: 'Limelight', cursive;
 }
 
 .menu-page ul {
@@ -535,7 +715,7 @@ td.dayoff {
   }
 }
 
-.bottom-caption {
+.menu-caption {
   color: #fff;
 }
 

@@ -12,6 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Limelight&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700&display=swap&subset=japanese"
     rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Antique+B1&display=swap" rel="stylesheet">
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   <link rel="icon" href="img/favicon.png">
 </head>
@@ -67,7 +68,9 @@
           </ul>
         </div>
         <nav class="carousel-dots"><!-- jsでボタンを生成 --></nav>
-        <h3>現実には存在しない、架空の隠れ家</h3>
+        <div class="hero-h3">
+          <h3>現実には存在しない、架空の隠れ家</h3>
+        </div>
         <p class="store-about">
           [storename]は1999年創業の歴史あるカフェバーです。<br>なんらかの良い感じの音楽が流れる架空の落ち着いた空間で、モルトやリキュールはもちろん、多様なカクテルやノンアルコールドリンクをお楽しみいただけます。<br>バー初心者の方でも安心しておくつろぎいただけるお店です。
         </p>
@@ -91,30 +94,30 @@
         <div class="deco-line"></div>
         <div class="menu-about">
           <p>
-            メニューのてきとうな説明メニューのてきとうな説明メニューのてきとうな説明メニューのてきとうな説明メニューのてきとうな説明メニューのてきとうな説明メニューのてきとうな説明メニューのてきとうな説明メニューのてきとうな説明メニューのてきとうな説明メニューのてきとうな説明メニューのてきとうな説明メニューのてきとうな説明メニューのてきとうな説明メニューのてきとうな説明メニューのてきとうな説明メニューのてきとうな説明メニューのてきとうな説明メニューのてきとうな説明メニューのてきとうな説明
+            多様なリキュールやスピリッツをご用意しております。ドリンクはお客様のお好みにあわせてお作りいたしますので、お気軽にご相談ください。
           </p>
         </div>
         <div class="pc-menu-drink">
           <div class="menu-drink">
-            <div class="cocktail-img">
+            <div class="cocktail-img odd">
               <img src="img/picB.png" alt="カクテルの写真">
             </div>
             <div>
-              <p>ドリンクメニュー1</p>
-              <p>
-                ここにカクテルの説明が入ります。ここにカクテルの説明が入ります。ここにカクテルの説明が入ります。ここにカクテルの説明が入ります。ここにカクテルの説明が入ります。ここにカクテルの説明が入ります。ここにカクテルの説明が入ります。ここにカクテルの説明が入ります。
+              <p class="cocktail-name-odd">ゴーストムーン</p>
+              <p class="cocktail-caption-odd">
+                当店のオリジナルカクテルです。ジンをベースにレモンの酸味とパルフェタムールの甘味、ビターズの不思議な味わいが混ざり合う、風味も見た目も楽しい一杯。
               </p>
             </div>
           </div>
 
           <div class="menu-drink">
-            <div class="cocktail-img">
+            <div class="cocktail-img even">
               <img src="img/picB.png" alt="カクテルの写真">
             </div>
             <div>
-              <p>ドリンクメニュー2</p>
-              <p>
-                ここにカクテルの説明が入ります。ここにカクテルの説明が入ります。ここにカクテルの説明が入ります。ここにカクテルの説明が入ります。ここにカクテルの説明が入ります。ここにカクテルの説明が入ります。ここにカクテルの説明が入ります。ここにカクテルの説明が入ります。
+              <p class="cocktail-name-even">ミッドナイト・フィズ</p>
+              <p class="cocktail-caption-even">
+                アレンジカクテルです。アプリコットブランデーの特徴的な香りと、甘みと酸味のバランスが取れたすっきりとした味わいの一杯。
               </p>
             </div>
           </div>
@@ -124,7 +127,7 @@
         <div class="deco-line"></div>
         <div class="menu-food">
           <div class="menu-about">
-            <p>フードメニューの説明フードメニューの説明フードメニューの説明フードメニューの説明フードメニューの説明フードメニューの説明</p>
+            <p>定番のバーメニューはもちろん、当店のオリジナルスイーツメニューもご用意しております。夜カフェとしてのご利用も歓迎しておりますので、コーヒーや紅茶とご一緒にお楽しみください。</p>
           </div>
         </div>
         <div class="viewmore"><a href="menu.html">VIEW MORE</a></div>
@@ -133,8 +136,9 @@
     <section id="contact">
       <h2>CONTACT</h2>
       <div class="container">
-        <p>ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。ここに説明が入ります。</p>
-        <p>TEL:000-0000-0000</p>
+        <p>確認次第ご返信するようにしておりますが、ご予約やお急ぎの場合はお電話にてお問い合わせください。</p>
+        <div class="tel">TEL: 000-0000-0000</div>
+        <p>各項目をご入力の上、ボタンをクリックして送信して下さい。</p>
         <div class="contact-form">
           <p>お名前：</p>
           <input type="text" required>
@@ -153,12 +157,13 @@
       <div class="container">
         <div class="access-info">
           <p>〒000-0000　神奈川県横浜市未知区架空町1-1-1　虚構ビルB1</p>
-          <p>JR京浜東北線　架空駅　徒歩5分</p>
-          <p>市営地下鉄　架空町駅　徒歩3分</p>
+          <p>JR京浜東北線　架空駅　徒歩3分</p>
+          <p>市営地下鉄　架空町駅　徒歩4分</p>
           <p>東部架空公園前交差点　すぐ</p>
+          <p>営業時間：　18：00～03：00（L.O. 02:30）</p>
         </div>
         <div class="access-map">
-          <img src="img/pic1.png" alt="アクセスマップ">
+          <img src="img/map.png" alt="アクセスマップ">
         </div>
       </div>
     </section>
@@ -169,7 +174,7 @@
     <div class="footer-content">
       <p>store name</p>
       <p>架空カフェバー</p>
-      <p>18：00～03：00</p>
+      <p>18：00～03：00（L.O. 02:30）</p>
       <p>〒000-0000　神奈川県横浜市未知区架空町1-1-1　虚構ビルB1</p>
       <p>TEL: 000-0000-0000</p>
       <div class="sns-footer">
