@@ -457,6 +457,7 @@ p {
 .access-map img {
   width: 80%;
   margin-bottom: 24px;
+  cursor: pointer;
 }
 
 @media (min-width: 1040px) {

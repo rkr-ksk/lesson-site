@@ -98,4 +98,26 @@
 		}, 5000);
 	});
 
+  // ---イメージモーダル
+  const modalWrapper = document.querySelector('.modal-wrapper');
+  const images = document.querySelectorAll('.image');
+  const modalImage = document.querySelector('.modal-image');
+
+  images.forEach(function (image) {
+    image.addEventListener('click', function () {
+      modalWrapper.classList.add('imgshow');
+      modalImage.classList.add('imgshow');
+
+      var imageSrc = image.getAttribute('data-src');
+      modalImage.src = imageSrc;
+    });
+  });
+
+  modalWrapper.addEventListener('click', function () {
+    if (this.classList.contains('imgshow')) {
+      this.classList.remove('imgshow');
+      modalImage.classList.remove('imgshow');
+    }
+  });
+
 }
