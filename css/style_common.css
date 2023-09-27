@@ -406,7 +406,7 @@ footer {
   margin-right: 8px;
   opacity: .6;
   position: absolute;
-  bottom: 5%;
+  bottom: 10%;
   right: 0;
   z-index: 10;
 
@@ -415,10 +415,10 @@ footer {
 
 @keyframes scroll-anim {
   0% {
-    bottom: 5%;
+    bottom: 10%;
   }
   100% {
-    bottom: 10%;
+    bottom: 0%;
   }
 }
 

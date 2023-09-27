@@ -176,7 +176,9 @@ p {
 }
 
 .hero-h3 h3 {
-  font-family: 'Shippori Antique B1', sans-serif;
+  /* font-family: 'Shippori Antique B1', sans-serif; */
+  font-weight: bold;
+  text-shadow: 2px 2px #c2a3ff;
 }
 
 .store-about {
@@ -287,6 +289,7 @@ p {
   font-size: 20px;
   position: absolute;
   top: 10px;
+  text-shadow: var(--sub-color) 1px 0 10px;
 }
 .cocktail-name-even {
   color: #fff;
@@ -295,6 +298,7 @@ p {
   position: absolute;
   top: 10px;
   right: 0;
+  text-shadow: var(--sub-color) 1px 0 10px;
 }
 
 .cocktail-caption-odd {
@@ -368,9 +372,9 @@ p {
 
 .tel {
   margin: 16px 0;
-  padding: 24px;
+  padding: 16px;
   text-align: center;
-  background-color: #BBB;
+  background-color: rgba(255, 255, 255, .3);
 }
 
 .contact-form {
@@ -666,11 +670,13 @@ td.dayoff {
 }
 
 #menu-drink, #menu-food {
-  font-size: 28px;
+  font-size: 30px;
+  letter-spacing: 4px;
   font-weight: bold;
   text-align: center;
   color: #fff;
   font-family: 'Limelight', cursive;
+  text-shadow: var(--sub-color) 1px 0 10px;
 }
 
 .menu-page ul {
