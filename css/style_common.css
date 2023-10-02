@@ -11,7 +11,7 @@ html {
   /* スムーズスクロール */
   scroll-behavior: smooth;
   /* 固定ヘッダ分のジャンプ位置調整 */
-  scroll-padding-top: 80px;
+  scroll-padding-top: 50px;
 }
 
 body {
@@ -24,6 +24,7 @@ body {
 	background:linear-gradient(45deg, #501fd6,#1a001a,#9a63ff);
 	background-size: 200% 200%;
 	animation: bggradient 10s ease infinite;
+  position: relative;
 }
 
 @keyframes bggradient {
@@ -66,6 +67,9 @@ header a {
 header img {
 	max-width: 80%;
 	vertical-align: middle;
+  position: absolute;
+  top: 0;
+  left: 8px;
 }
 
 /* ▼SP用ボタン */
@@ -401,43 +405,48 @@ footer {
 }
 
 .flow-ghost {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   margin-right: 8px;
   opacity: .6;
-  position: absolute;
-  bottom: 10%;
+  position: fixed;
+  top: 100px;
   right: 0;
   z-index: 10;
+  opacity: 0;
 
-  animation: scroll-anim 5s ease infinite alternate;
+  animation: scroll-anim 8s ease 1s infinite alternate;
 }
 
 @keyframes scroll-anim {
   0% {
-    bottom: 10%;
+    top: 20%;
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
   }
   100% {
-    bottom: 0%;
+    top: 85%;
   }
 }
 
 @media (min-width: 768px) {
   .flow-ghost{
-    width: 150px;
-    height: 150px;
-    top: 120%;
-    bottom: auto;
+    width: 200px;
+    height: 200px;
   }
-
   @keyframes scroll-anim {
     0% {
-      top: 95%;
-      bottom: auto;
+      top: 10%;
+      opacity: 0;
+    }
+    50% {
+      right: 32px;
+      opacity: 1;
     }
     100% {
-      top: 120%;
-      bottom: auto;
+      top: 75%;
     }
   }
 }
