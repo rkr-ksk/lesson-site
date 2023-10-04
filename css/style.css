@@ -216,19 +216,19 @@ p {
 	padding: 16px;
 }
 
-.news article:nth-child(1) {
+.news div:nth-child(1) {
 	padding: 8px;
 }
-.news article + article {
+.news div + div {
 	padding:  0 8px 8px;
 }
 
-.news article a {
+.news div a {
 	text-decoration: none;
 	color: var(--sub-color);
 }
 
-.news article a:hover {
+.news div a:hover {
 	text-decoration: underline;
 	color: var(--main-color);
 }
